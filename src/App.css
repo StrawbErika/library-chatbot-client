@@ -33,7 +33,10 @@
     margin: 50px;
 }
 
-#users{
-    font-size: 30px;
-    
+#checkall{
+    font-size: 10px !important;
+}
+
+.users{
+    font-size: 25px !important;
 }

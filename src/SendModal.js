@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, Button, Checkbox, Row, Col} from 'antd';
 import './App.css';
+import UserCheckbox from './UserCheckbox';
 
 class SendModal extends React.Component {
   state = {
@@ -53,22 +54,7 @@ class SendModal extends React.Component {
           id="send-modal"
         >
             <div id="modal-content">
-                <Checkbox.Group style={{ width: '100%' }} onChange={this.onChange}>
-                    <Row>
-                        <Checkbox value="Borrowers">Borrowers</Checkbox>
-                        <Checkbox value="All">All</Checkbox>
-                    </Row>
-                </Checkbox.Group>
-
-
-
-                <div id='users'>
-                    <Checkbox.Group style={{ width: '100%' }} onChange={this.onChange}>
-                        <Row>
-                            <Checkbox value="Borrowers">Borrowers</Checkbox>
-                        </Row>
-                    </Checkbox.Group>
-                </div>
+                <UserCheckbox/> 
             </div>
 
         </Modal>
