@@ -1,44 +1,27 @@
-/*
-  PROBLEM:
-  check all doesn't work! i mean ung checkbox mismo sa UI doesnt check all checkboxes
-*/
-
-// hallo
-// :*
 import React, { Component } from "react";
-import { Checkbox, Row } from "antd";
+import { Checkbox, Row, Button } from "antd";
 
 const CheckboxGroup = Checkbox.Group;
 
 class userCheckbox extends React.Component {
   state = {
-    userList: [],
     indeterminate: true,
     checkAll: false
   };
 
-  checked = e => {
+  handleCheckChange = (e, userId) => {
     if (e.target.checked) {
-      this.setState({
-        userList: [...this.state.userList, e.target.value]
-      });
+      this.props.checkUser(userId);
+    } else {
+      this.props.unCheckUser(userId);
     }
   };
 
   render() {
-    console.log(this.state.userList);
-
     return (
       <div>
         <div style={{ borderBottom: "1px solid #E9E9E9" }}>
-          <Checkbox
-            indeterminate={this.state.indeterminate}
-            // onChange={this.onCheckAllChange}
-            // checked={this.state.checkAll}
-          >
-            Check all
-          </Checkbox>
-          <Checkbox value="Borrowers"> Borrowers </Checkbox>
+          <Checkbox onChange={this.props.checkAll}>Check all</Checkbox>
         </div>
         <br />
         {this.props.users ? (
@@ -46,9 +29,9 @@ class userCheckbox extends React.Component {
             return (
               <Row>
                 <Checkbox
-                  value={user.id}
+                  checked={user.checked}
                   className="users"
-                  onChange={this.checked}
+                  onChange={e => this.handleCheckChange(e, user.id)}
                 >
                   {" "}
                   {user.name}

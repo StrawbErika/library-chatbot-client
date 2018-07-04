@@ -1,31 +1,25 @@
 import React, { Component } from "react";
-import { Modal, Button, Checkbox, Row, Col } from "antd";
+import { Modal, Button, Checkbox, Row, Col, notification } from "antd";
 import "./App.css";
 import UserCheckbox from "./UserCheckbox";
-import axios from "axios";
-
-// hello
-// hi!
 
 class SendModal extends React.Component {
   state = {
     loading: false,
-    visible: false,
-    users: []
+    visible: false
+  };
+
+  openNotification = () => {
+    notification.open({
+      placement: "topLeft",
+      message: "Book Rental Broadcaster",
+      description: "Your message has succesfully been sent!"
+    });
   };
 
   showModal = () => {
-    axios.get("http://localhost:8080/showUsers").then(response => {
-      const { userList } = response.data;
-      const userListWithCheck = userList.map(user => ({
-        ...user,
-        checked: true
-      }));
-
-      this.setState({
-        visible: true,
-        users: userListWithCheck
-      });
+    this.setState({
+      visible: true
     });
   };
 
@@ -33,6 +27,7 @@ class SendModal extends React.Component {
     this.setState({ loading: true });
     this.props.onSubmit().then(body => {
       this.setState({ loading: false, visible: false });
+      this.openNotification();
     });
   };
 
@@ -64,12 +59,18 @@ class SendModal extends React.Component {
               type="primary"
               loading={loading}
               onClick={this.handleOk}
+              id="button-color"
             >
               Submit
             </Button>
           ]}
         >
-          <UserCheckbox users={this.state.users} />
+          <UserCheckbox
+            users={this.props.userList}
+            checkAll={this.props.checkAll}
+            checkUser={this.props.checkUser}
+            unCheckUser={this.props.unCheckUser}
+          />
         </Modal>
       </div>
     );

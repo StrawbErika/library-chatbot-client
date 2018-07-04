@@ -1,42 +1,79 @@
-#logo{
-    height: 490px;
+#logo {
+  margin-left: 135px;
+  height: 490px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+#notif {
+  background-color: rgb(226, 121, 44) !important;
+  width: 435px;
+  height: 100vh;
+}
+#body {
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: row;
+}
+#image {
+  border-radius: 245px;
+}
+#container {
+  display: flex;
+  flex-direction: column;
+}
+#input-button {
+  /* background-color: red; */
+  margin-left: 270px;
+  padding-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }
 
-#container{
-    display: flex;
-    flex-direction: column;
-}
-#input-button{
-    padding-top: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
+#text-area {
+  margin-top: -10px;
+  font-size: 20px;
+  width: 750px;
+  height: 250px;
+  padding: 20px;
+  padding-top: 10px;
+  border-color: rgb(226, 121, 44);
 }
 
-#text-area{
-    font-size: 20px;
-    width: 900px;
-    height: 250px;
+#send {
+  font-size: 23px;
+  width: 140px;
+  height: 70px;
+  margin-left: 20px;
+  border-radius: 35px;
+  background-color: rgb(226, 121, 44);
+  border-color: rgb(226, 121, 44);
 }
 
-#send{
-    font-size: 17px;
-    width:120px;
-    height: 50px;
-    margin-left: 20px;
-    border-radius: 35px;
+#button-color {
+  background-color: rgb(226, 121, 44);
+  border-color: rgb(226, 121, 44);
 }
 
-#modal-content{
-    font-size: 17px;
-    margin: 50px;
+#modal-content {
+  font-size: 17px;
+  margin: 50px;
 }
 
-#checkall{
-    font-size: 10px !important;
+#checkall {
+  font-size: 10px !important;
 }
 
-.users{
-    font-size: 25px !important;
+.users {
+  font-size: 25px !important;
 }
+
+#checkbox input:checked {
+  background-color: rgb(226, 121, 44) !important;
+}
+/* When the checkbox is checked, add a blue background
+.container input:checked ~ .checkmark { */
+/* } */
