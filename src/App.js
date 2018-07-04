@@ -78,7 +78,9 @@ class App extends Component {
 
     return (
       <div id="body">
-        <div id="notif" />
+        <div id="notif">
+          <p id="text"> Notifications </p>
+        </div>
         <div id="container">
           <div id="logo">
             <img id="image" alt="example" src={logo} />

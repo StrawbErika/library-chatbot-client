@@ -10,6 +10,9 @@ class SendModal extends React.Component {
   };
 
   openNotification = () => {
+    notification.config({
+      top: 130
+    });
     notification.open({
       placement: "topLeft",
       message: "Book Rental Broadcaster",
@@ -51,7 +54,7 @@ class SendModal extends React.Component {
           onCancel={this.handleCancel}
           width={850}
           footer={[
-            <Button key="back" onClick={this.handleCancel}>
+            <Button key="back" onClick={this.handleCancel} id="return-button">
               Return
             </Button>,
             <Button
