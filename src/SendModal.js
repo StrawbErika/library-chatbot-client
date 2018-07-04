@@ -4,6 +4,9 @@ import "./App.css";
 import UserCheckbox from "./UserCheckbox";
 import axios from "axios";
 
+// hello
+// hi!
+
 class SendModal extends React.Component {
   state = {
     loading: false,
@@ -13,10 +16,15 @@ class SendModal extends React.Component {
 
   showModal = () => {
     axios.get("http://localhost:8080/showUsers").then(response => {
-      console.log(response.data.userList);
+      const { userList } = response.data;
+      const userListWithCheck = userList.map(user => ({
+        ...user,
+        checked: true
+      }));
+
       this.setState({
         visible: true,
-        users: response.data.userList
+        users: userListWithCheck
       });
     });
   };

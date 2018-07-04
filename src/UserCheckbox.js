@@ -1,3 +1,10 @@
+/*
+  PROBLEM:
+  check all doesn't work! i mean ung checkbox mismo sa UI doesnt check all checkboxes
+*/
+
+// hallo
+// :*
 import React, { Component } from "react";
 import { Checkbox, Row } from "antd";
 
@@ -5,35 +12,20 @@ const CheckboxGroup = Checkbox.Group;
 
 class userCheckbox extends React.Component {
   state = {
-    checkedList: [],
     indeterminate: true,
     checkAll: false
   };
 
-  onChange = checkedList => {
-    this.setState({
-      checkedList,
-      indeterminate:
-        !!checkedList.length && checkedList.length < this.props.users.length,
-      checkAll: checkedList.length === this.props.users.length
-    });
-  };
-
-  onCheckAllChange = e => {
-    this.setState({
-      checkedList: e.target.checked ? this.props.users : [],
-      indeterminate: false,
-      checkAll: e.target.checked
-    });
-  };
   render() {
+    console.log(this.props.users);
+
     return (
       <div>
         <div style={{ borderBottom: "1px solid #E9E9E9" }}>
           <Checkbox
             indeterminate={this.state.indeterminate}
-            onChange={this.onCheckAllChange}
-            checked={this.state.checkAll}
+            // onChange={this.onCheckAllChange}
+            // checked={this.state.checkAll}
           >
             Check all
           </Checkbox>
@@ -48,9 +40,13 @@ class userCheckbox extends React.Component {
             {this.props.users.map(user => {
               return (
                 <Row>
-                  <Checkbox value={user.id} className="users">
+                  <Checkbox
+                    value={user.id}
+                    className="users"
+                    checked={user.checked}
+                  >
                     {" "}
-                    {user.name}{" "}
+                    {user.name} - {user.checked ? "true" : "false"}{" "}
                   </Checkbox>
                 </Row>
               );
