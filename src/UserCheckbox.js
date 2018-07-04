@@ -12,12 +12,21 @@ const CheckboxGroup = Checkbox.Group;
 
 class userCheckbox extends React.Component {
   state = {
+    userList: [],
     indeterminate: true,
     checkAll: false
   };
 
+  checked = e => {
+    if (e.target.checked) {
+      this.setState({
+        userList: [...this.state.userList, e.target.value]
+      });
+    }
+  };
+
   render() {
-    console.log(this.props.users);
+    console.log(this.state.userList);
 
     return (
       <div>
@@ -33,25 +42,20 @@ class userCheckbox extends React.Component {
         </div>
         <br />
         {this.props.users ? (
-          <CheckboxGroup
-            value={this.state.checkedList}
-            onChange={this.onChange}
-          >
-            {this.props.users.map(user => {
-              return (
-                <Row>
-                  <Checkbox
-                    value={user.id}
-                    className="users"
-                    checked={user.checked}
-                  >
-                    {" "}
-                    {user.name} - {user.checked ? "true" : "false"}{" "}
-                  </Checkbox>
-                </Row>
-              );
-            })}
-          </CheckboxGroup>
+          this.props.users.map(user => {
+            return (
+              <Row>
+                <Checkbox
+                  value={user.id}
+                  className="users"
+                  onChange={this.checked}
+                >
+                  {" "}
+                  {user.name}
+                </Checkbox>
+              </Row>
+            );
+          })
         ) : (
           <div>Loading</div>
         )}
