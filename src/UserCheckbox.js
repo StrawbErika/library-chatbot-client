@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Checkbox, Row, Button } from "antd";
+import { Checkbox, Row } from "antd";
 
-const CheckboxGroup = Checkbox.Group;
-
-class userCheckbox extends React.Component {
+class userCheckbox extends Component {
   state = {
     indeterminate: true,
     checkAll: false

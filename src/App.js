@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Input, Button, Icon } from "antd";
+import { Input } from "antd";
 import "./App.css";
 import SendModal from "./SendModal";
-import Notification from "./Notification";
 import axios from "axios";
 import logo from "./612394-mic-512.png";
+
 class App extends Component {
   componentDidMount() {
     this.getUserList();

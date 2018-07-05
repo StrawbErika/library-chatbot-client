@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Modal, Button, Checkbox, Row, Col, notification } from "antd";
+import { Modal, Button, notification } from "antd";
 import "./App.css";
 import UserCheckbox from "./UserCheckbox";
 
-class SendModal extends React.Component {
+class SendModal extends Component {
   state = {
     loading: false,
     visible: false
@@ -11,7 +11,7 @@ class SendModal extends React.Component {
 
   openNotification = () => {
     notification.config({
-      top: 130
+      top: 110
     });
     notification.open({
       placement: "topLeft",
@@ -64,7 +64,7 @@ class SendModal extends React.Component {
               onClick={this.handleOk}
               id="button-color"
             >
-              Submit
+              {!loading && "Submit"}
             </Button>
           ]}
         >

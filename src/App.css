@@ -4,9 +4,9 @@
 }
 
 #text {
-  font-size: 80px !important;
+  font-size: 70px !important;
   font-family: "Bebas Neue";
-  margin-left: 38px;
+  margin-left: 55px;
   margin-top: 10px;
   color: white;
 }
@@ -20,7 +20,7 @@
   margin-top: 50px;
 }
 #notif {
-  background-color: rgb(226, 121, 44) !important;
+  background-color: #e2792c !important;
   width: 435px;
   height: 100vh;
 }
