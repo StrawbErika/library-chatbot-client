@@ -99,6 +99,3 @@
 #checkbox input:checked {
   background-color: rgb(226, 121, 44) !important;
 }
-/* When the checkbox is checked, add a blue background
-.container input:checked ~ .checkmark { */
-/* } */
